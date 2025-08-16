@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() => runApp(const LamentApp());
 
@@ -128,8 +129,8 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {
-                      
+                    onPressed: () async {
+                      await launchUrlString("https://github.com/theleftyproject/lament", mode: LaunchMode.externalApplication);
                     },
                     child: const Text(
                       "Get Started",
