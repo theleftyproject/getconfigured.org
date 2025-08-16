@@ -16,7 +16,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     // Trans pride gradient
     final backgroundGradient = LinearGradient(
@@ -41,15 +42,38 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("The Lefty Application, Modification, Editing and Notification Tool"),
-        leading: Image.asset("assets/images/lament.png"),
+        title: const Text(
+          "The Lefty Application, Modification, Editing and Notification Tool",
         ),
+        leading: Container(
+          decoration: BoxDecoration(color: Colors.white),
+          child: Image.asset("assets/images/lament.png"),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await launchUrlString(
+                "https://github.com/theleftyproject/lament",
+              );
+            },
+            icon: const Icon(Icons.code),
+            style: ButtonStyle(
+              backgroundColor: WidgetStateColor.resolveWith(
+                ((_) => Colors.white),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Container(
         decoration: BoxDecoration(gradient: backgroundGradient),
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 48.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 48.0,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -59,7 +83,9 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
-                      color: isDarkMode ? Colors.deepPurple[300] : Colors.deepPurple[700],
+                      color: isDarkMode
+                          ? Colors.deepPurple[300]
+                          : Colors.deepPurple[700],
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -87,11 +113,15 @@ class HomePage extends StatelessWidget {
                         color: isDarkMode ? Colors.white : Colors.black,
                       ),
                       children: [
-                        const TextSpan(text: "Nix was a PhD thesis, we bring you the "),
+                        const TextSpan(
+                          text: "Nix was a PhD thesis, we bring you the ",
+                        ),
                         TextSpan(
                           text: "antithesis",
                           style: TextStyle(
-                            color: isDarkMode ? Colors.deepPurple[300] : Colors.deepPurple[700],
+                            color: isDarkMode
+                                ? Colors.deepPurple[300]
+                                : Colors.deepPurple[700],
                             fontWeight: FontWeight.w900,
                           ),
                         ),
@@ -103,14 +133,22 @@ class HomePage extends StatelessWidget {
                   // Get Started Button
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: isDarkMode ? Colors.deepPurple[300] : Colors.deepPurple[600],
-                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      backgroundColor: isDarkMode
+                          ? Colors.deepPurple[300]
+                          : Colors.deepPurple[600],
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 16,
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
                     onPressed: () async {
-                      await launchUrlString("https://github.com/theleftyproject/lament", mode: LaunchMode.externalApplication);
+                      await launchUrlString(
+                        "https://github.com/theleftyproject/lament",
+                        mode: LaunchMode.externalApplication,
+                      );
                     },
                     child: const Text(
                       "Get Started",
