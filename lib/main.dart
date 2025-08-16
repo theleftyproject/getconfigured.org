@@ -64,6 +64,7 @@ class HomePage extends StatelessWidget {
     );
 
     return Scaffold(
+      appBar: AppBar(title: const Text("The Lefty Application, Modification, Editing and Notification Tool"),),
       body: Container(
         decoration: BoxDecoration(gradient: backgroundGradient),
         child: Center(
