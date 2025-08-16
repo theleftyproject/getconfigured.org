@@ -1,0 +1,13 @@
+--2025-08-16 21:28:39--  https://doc.getconfigured.org/images/lament.png
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving doc.getconfigured.org (doc.getconfigured.org)... 85.95.237.78
+Connecting to doc.getconfigured.org (doc.getconfigured.org)|85.95.237.78|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 84239 (82K) [image/png]
+Saving to: ‘lament.png’
+
+     0K .......... .......... .......... .......... .......... 60% 60.8K 1s
+    50K .......... .......... .......... ..                   100% 79.7K=1.2s
+
+2025-08-16 21:28:43 (67.0 KB/s) - ‘lament.png’ saved [84239/84239]
+
