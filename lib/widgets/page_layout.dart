@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lefty_framework_website/util/scroll.dart';
 import 'package:lefty_framework_website/widgets/footer.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class PageLayout extends StatelessWidget {
   final Widget child; // Page-specific content
@@ -57,17 +59,47 @@ class PageLayout extends StatelessWidget {
             ),
           ),
         ),
+        actions: <Widget>[
+          Semantics(
+            tooltip: 'https://doc.getconfigured.org',
+            child: IconButton(
+              onPressed: () async =>
+                  await launchUrlString("https://doc.getconfigured.org"),
+              icon: const Icon(Icons.library_books),
+            ),
+          ),
+
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: InkWell(
+              onTap: () async {
+                await launchUrlString(
+                  "https://github.com/theleftyproject/lament",
+                );
+              },
+              child: Semantics(
+                tooltip: 'https://github.com/theleftyproject/lament',
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(
+                    "assets/icons/github-mark-white.svg",
+                    width: 32,
+                    height: 32,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(gradient: backgroundGradient),
         child: CustomScrollView(
           controller: scrollController,
           slivers: [
-            SliverToBoxAdapter(
-              child: child,
-            ),
+            SliverToBoxAdapter(child: child),
             SliverFillRemaining(
-              hasScrollBody: false, 
+              hasScrollBody: false,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
