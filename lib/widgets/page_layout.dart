@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lefty_framework_website/util/scroll.dart';
-import 'footer.dart';
+import 'package:lefty_framework_website/widgets/footer.dart';
 
 class PageLayout extends StatelessWidget {
   final Widget child; // Page-specific content
   final ScrollController? scrollController;
   final String title;
+
   const PageLayout({
     super.key,
     required this.title,
@@ -59,35 +60,26 @@ class PageLayout extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(gradient: backgroundGradient),
-        child: SingleChildScrollView(
+        child: CustomScrollView(
           controller: scrollController,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              child, // Page-specific content goes here
-              const SizedBox(height: 128), // Space above footer
-              // Full-width footer
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  return Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      width: MediaQuery.of(
-                        context,
-                      ).size.width, // full screen width
-                      child: Positioned(
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        child: Footer(),
-                      ),
-                    ),
-                  );
-                },
+          slivers: [
+            SliverToBoxAdapter(
+              child: child,
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false, 
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Spacer(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Footer(),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
