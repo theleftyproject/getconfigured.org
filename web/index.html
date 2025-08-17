@@ -39,6 +39,11 @@
   <title>Lefty Framework</title>
   <link rel="manifest" href="manifest.json">
   <style>
+    @font-face {
+      font-family: 'XBAND Rough';
+      src: url(assets/assets/fonts/XBAND-Rough.ttf);
+    }
+
     .container {
       position: fixed;
       inset: 0px;
@@ -85,6 +90,27 @@
       }
     }
 
+    @media print {
+      .container {
+        display: none;
+      }
+      .print {
+        display: flex;
+      }
+      #you-wouldnt-print-this-page {
+        font-family: 'XBAND Rough';
+        font-size: xx-large;
+        background-color: black;
+        color: white;
+      }
+    }
+
+    @media not print {
+      .print {
+        display: none;
+      }
+    }
+
     @keyframes rotation {
       0% {
         transform: rotate(0deg);
@@ -98,6 +124,20 @@
 </head>
 
 <body>
+  <div class="print">
+    <span id="you-wouldnt-print-this-page">
+      YOU WOULDN'T PRINT THIS PAGE
+    </span>
+    <p>
+      I am deadass. This page is not for being printed. The entire reason we made LAMENT is so
+      you would not configure anything to be printed. Printers are made by witches, printers are made for
+      witches. The last successful printer configuration was done by Tellulu, and page 617 is about how to
+      configure printers. Do not print this page. If you are browsing through a teleprinter, cool as shit,
+      but I would prefer you to have a proper job instead, hopefully one that pays better than my internship
+      at the town hall.
+    </p>
+  </div>
+
   <div class="container">
     <span class="loader"></span>
   </div>
