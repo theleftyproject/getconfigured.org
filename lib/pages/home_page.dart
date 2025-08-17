@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:lefty_framework_website/util/scroll.dart';
 import 'package:url_launcher/url_launcher_string.dart';
