@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lefty_framework_website/util/scroll.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatelessWidget {
@@ -40,26 +41,39 @@ class HomePage extends StatelessWidget {
       end: Alignment.bottomRight,
     );
 
+    final scrollController = ScrollController();
+
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black.withAlpha(179),
         title: const Text(
           "The Lefty Application, Modification, Editing and Notification Tool",
         ),
-        leading: Container(
-          decoration: BoxDecoration(color: Colors.white),
-          child: Image.asset("assets/images/lament.png"),
+        leading: InkWell(
+          onTap: () async => await scrollToTop(scrollController),
+          child: Container(
+            decoration: BoxDecoration(color: Colors.white),
+            child: Semantics(
+              label: 'LAMENT Logo',
+              child: Image.asset("assets/images/lament.png"),
+            ),
+          ),
         ),
         actions: [
-          IconButton(
-            onPressed: () async {
-              await launchUrlString(
-                "https://github.com/theleftyproject/lament",
-              );
-            },
-            icon: const Icon(Icons.code),
-            style: ButtonStyle(
-              backgroundColor: WidgetStateColor.resolveWith(
-                ((_) => Colors.white),
+          Semantics(
+            label: 'https://github.com/theleftyproject/lament',
+            link: true,
+            child: IconButton(
+              onPressed: () async {
+                await launchUrlString(
+                  "https://github.com/theleftyproject/lament",
+                );
+              },
+              icon: const Icon(Icons.code),
+              style: ButtonStyle(
+                backgroundColor: WidgetStateColor.resolveWith(
+                  ((_) => Colors.white),
+                ),
               ),
             ),
           ),
@@ -69,6 +83,7 @@ class HomePage extends StatelessWidget {
         decoration: BoxDecoration(gradient: backgroundGradient),
         child: Center(
           child: SingleChildScrollView(
+            controller: scrollController,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 24.0,
