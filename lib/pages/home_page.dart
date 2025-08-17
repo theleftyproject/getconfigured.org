@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:lefty_framework_website/util/scroll.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -146,28 +148,32 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 48),
 
                   // Get Started Button
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isDarkMode
-                          ? Colors.deepPurple[300]
-                          : Colors.deepPurple[600],
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 32,
-                        vertical: 16,
+                  Semantics(
+                    button: true,
+                    tooltip: 'https://github.com/theleftyproject/lament.git',
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: isDarkMode
+                            ? Colors.deepPurple[300]
+                            : Colors.deepPurple[600],
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 16,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                      onPressed: () async {
+                        await launchUrlString(
+                          "https://github.com/theleftyproject/lament",
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                      child: const Text(
+                        "Get Started",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
-                    ),
-                    onPressed: () async {
-                      await launchUrlString(
-                        "https://github.com/theleftyproject/lament",
-                        mode: LaunchMode.externalApplication,
-                      );
-                    },
-                    child: const Text(
-                      "Get Started",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
                 ],
