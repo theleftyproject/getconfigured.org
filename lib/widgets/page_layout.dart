@@ -65,7 +65,10 @@ class PageLayout extends StatelessWidget {
             child: IconButton(
               onPressed: () async =>
                   await launchUrlString("https://doc.getconfigured.org"),
-              icon: Icon(isDarkMode ? Icons.library_books : Icons.library_books_outlined),
+              icon: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(isDarkMode ? Icons.library_books : Icons.library_books_outlined),
+              ),
             ),
           ),
 
