@@ -20,7 +20,7 @@ class LamentApp extends StatelessWidget {
         textTheme: ThemeData.dark().textTheme.apply(fontFamily: 'Inter'),
       ),
       themeMode: ThemeMode.system, // respects browser color scheme
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
