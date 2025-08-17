@@ -6,9 +6,10 @@ class FadeCard extends StatefulWidget {
   final String description;
   final Color color;
 
-  FadeCard({required this.title, required this.description, required this.color});
+  const FadeCard({super.key, required this.title, required this.description, required this.color});
 
   @override
+  // ignore: library_private_types_in_public_api
   _FadeCardState createState() => _FadeCardState();
 }
 
