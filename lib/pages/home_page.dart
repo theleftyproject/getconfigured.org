@@ -59,41 +59,47 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          RichText(
-            text: TextSpan(
-              text: "LAMENT is the ultimate command-line tool for ",
-              style: TextStyle(color: Colors.black, fontSize: 16),
-              children: [
-                TextSpan(
-                  text: "declarative system configuration",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                TextSpan(
-                  text:
-                      " that actually respects your edits. Unlike other tools that overwrite "
-                      "your manual changes or break when you touch a file, LAMENT merges every "
-                      "tweak, every line, and every setting into a cohesive, conflict-free "
-                      "configuration, letting you automate with confidence while keeping full "
-                      "control. Append kernel parameters, adjust network settings, or tweak "
-                      "critical system files — all declaratively, all safely tracked, and all "
-                      "perfectly integrated. With LAMENT, system configuration becomes "
-                      "predictable, powerful, and effortlessly under your control, turning "
-                      "manual chaos into declarative mastery.",
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.all(11.0),
+            child: RichText(
+              text: TextSpan(
+                text: "LAMENT is the ultimate command-line tool for ",
+                style: TextStyle(color: Colors.black, fontSize: 16),
+                children: [
+                  TextSpan(
+                    text: "declarative system configuration",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text:
+                        " that actually respects your edits. Unlike other tools that overwrite "
+                        "your manual changes or break when you touch a file, LAMENT merges every "
+                        "tweak, every line, and every setting into a cohesive, conflict-free "
+                        "configuration, letting you automate with confidence while keeping full "
+                        "control. Append kernel parameters, adjust network settings, or tweak "
+                        "critical system files — all declaratively, all safely tracked, and all "
+                        "perfectly integrated. With LAMENT, system configuration becomes "
+                        "predictable, powerful, and effortlessly under your control, turning "
+                        "manual chaos into declarative mastery.",
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 32),
-          Column(
-            children: List.generate(cards.length, (index) {
-              final isBlue = index % 2 == 0;
-              final color = isBlue ? Color(0xff5bcefa) : Color(0xffc77da1);
-              return FadeCard(
-                title: cards[index]["title"]!,
-                description: cards[index]["description"]!,
-                color: color,
-              );
-            }),
+          Padding(
+            padding: const EdgeInsets.all(11.0),
+            child: Column(
+              children: List.generate(cards.length, (index) {
+                final isBlue = index % 2 == 0;
+                final color = isBlue ? Color(0xff5bcefa) : Color(0xffc77da1);
+                return FadeCard(
+                  title: cards[index]["title"]!,
+                  description: cards[index]["description"]!,
+                  color: color,
+                );
+              }),
+            ),
           ),
         ],
       ),

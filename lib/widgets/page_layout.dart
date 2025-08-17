@@ -83,8 +83,8 @@ class PageLayout extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: SvgPicture.asset(
                     "assets/icons/github-mark-white.svg",
-                    width: 32,
-                    height: 32,
+                    width: 25,
+                    height: 25,
                   ),
                 ),
               ),
