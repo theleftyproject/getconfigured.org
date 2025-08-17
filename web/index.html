@@ -36,12 +36,95 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="icons/lament.png" />
 
-  <title>lefty_framework_website</title>
+  <title>Lefty Framework</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    .container {
+      position: fixed;
+      inset: 0px;
+      width: fit-content;
+      height: fit-content;
+      max-width: 100vw;
+      max-height: 100dvh;
+      margin: auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+      }
+
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FFF;
+        border-bottom-color: #ff5bcefa;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+        margin: auto;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: white;
+      }
+
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FFF;
+        border-bottom-color: #ff5bcefa;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+        margin: auto;
+      }
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <span class="loader"></span>
+  </div>
+
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.addEventListener('load', function () {
+      var loading = document.querySelector('#loading');
+      _flutter.loader.load({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function (engineInitializer) {
+        loading.classList.add('main_done');
+        return engineInitializer.initializeEngine();
+      }).then(function (appRunner) {
+        loading.classList.add('init_done');
+        return appRunner.runApp();
+      }).then(function (app) {
+        // Wait a few milliseconds so users can see the "zoooom" animation
+        // before getting rid of the "loading" div.
+        window.setTimeout(function () {
+          loading.remove();
+        }, 200);
+      });
+    });
+  </script>
 </body>
 
 </html>

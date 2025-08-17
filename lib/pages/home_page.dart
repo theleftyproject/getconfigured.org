@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
                         "tweak, every line, and every setting into a cohesive, conflict-free "
                         "configuration, letting you automate with confidence while keeping full "
                         "control. Append kernel parameters, adjust network settings, or tweak "
-                        "critical system files — all declaratively, all safely tracked, and all "
+                        "critical system files - all declaratively, all safely tracked, and all "
                         "perfectly integrated. With LAMENT, system configuration becomes "
                         "predictable, powerful, and effortlessly under your control, turning "
                         "manual chaos into declarative mastery.",

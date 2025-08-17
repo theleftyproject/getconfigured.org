@@ -25,9 +25,9 @@ class _FooterState extends State<Footer> {
             text: TextSpan(
               style: const TextStyle(color: Colors.white70, fontSize: 14),
               children: <TextSpan>[
-                const TextSpan(
+                TextSpan(
                   text:
-                      "Copyright \u00A9 Gayest Systems. Licensed under GNU General Public License Version 3.",
+                      "Copyright \u00A9 2024 - ${DateTime.now().year} Gayest Systems. Licensed under GNU General Public License Version 3.",
                 ),
                 const TextSpan(
                   text: " Source code for this website can be found at ",
