@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lefty_framework_website/util/color_ext.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'package:lefty_framework_website/util/color_ext.dart';
 
 class FadeCard extends StatefulWidget {
   final String title;
@@ -23,19 +23,27 @@ class FadeCard extends StatefulWidget {
 class _FadeCardState extends State<FadeCard> {
   double _opacity = 0.0;
   late Offset _offset;
+  bool _firstRender = true;
 
   @override
   void initState() {
     super.initState();
-    // start slightly offscreen based on direction
+    // slide-in only for the first render
     _offset = widget.slideFromLeft ? Offset(-0.3, 0) : Offset(0.3, 0);
   }
 
   void _handleVisibility(double visibleFraction) {
-    if (visibleFraction > 0.1) {
+    if (_firstRender && visibleFraction > 0.1) {
+      // first render: slide + fade
       setState(() {
         _opacity = 1.0;
-        _offset = Offset(0, 0); // slide into place
+        _offset = Offset.zero;
+        _firstRender = false;
+      });
+    } else if (!_firstRender) {
+      // subsequent renders: only fade
+      setState(() {
+        _opacity = visibleFraction > 0.1 ? 1.0 : 0.0;
       });
     }
   }
@@ -92,3 +100,5 @@ class _FadeCardState extends State<FadeCard> {
     );
   }
 }
+
+
