@@ -41,22 +41,22 @@
   <style>
     @font-face {
       font-family: 'XBAND Rough';
-      src: url(assets/assets/fonts/XBAND-Rough.ttf);
+      src: url(assets/assets/fonts/XBAND-Rough.ttf)
     }
 
     .container {
       position: fixed;
-      inset: 0px;
+      inset: 0;
       width: fit-content;
       height: fit-content;
       max-width: 100vw;
       max-height: 100dvh;
-      margin: auto;
+      margin: auto
     }
 
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme:dark) {
       body {
-        background-color: black;
+        background-color: #000
       }
 
       .loader {
@@ -68,13 +68,13 @@
         display: inline-block;
         box-sizing: border-box;
         animation: rotation 1s linear infinite;
-        margin: auto;
+        margin: auto
       }
     }
 
-    @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme:light) {
       body {
-        background-color: white;
+        background-color: #fff
       }
 
       .loader {
@@ -86,44 +86,45 @@
         display: inline-block;
         box-sizing: border-box;
         animation: rotation 1s linear infinite;
-        margin: auto;
+        margin: auto
       }
     }
 
     @media print {
       .container {
-        display: none;
+        display: none
       }
 
       .print {
-        display: flex;
+        display: flex
       }
 
       #you-wouldnt-print-this-page {
         font-family: 'XBAND Rough';
         font-size: xx-large;
-        background-color: black;
-        color: white;
-        padding: 10px;
+        background-color: #000;
+        color: #fff;
+        padding: 10px
       }
+
       .print section {
-        padding: 10px;
+        padding: 10px
       }
     }
 
     @media not print {
       .print {
-        display: none;
+        display: none
       }
     }
 
     @keyframes rotation {
       0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg)
       }
 
       100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg)
       }
     }
   </style>
@@ -134,7 +135,7 @@
     <section id="you-wouldnt-print-this-page">
       YOU WOULDN'T PRINT THIS PAGE
     </section>
-    <br/>
+    <br />
     <section>
       <p>
         I am deadass. This page is not for being printed. The entire reason we made LAMENT is so
@@ -153,26 +154,7 @@
 
   <script src="flutter_bootstrap.js" async></script>
   <script>
-    window.addEventListener('load', function () {
-      var loading = document.querySelector('#loading');
-      _flutter.loader.load({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function (engineInitializer) {
-        loading.classList.add('main_done');
-        return engineInitializer.initializeEngine();
-      }).then(function (appRunner) {
-        loading.classList.add('init_done');
-        return appRunner.runApp();
-      }).then(function (app) {
-        // Wait a few milliseconds so users can see the "zoooom" animation
-        // before getting rid of the "loading" div.
-        window.setTimeout(function () {
-          loading.remove();
-        }, 200);
-      });
-    });
+    window.addEventListener('load', function () { var loading = document.querySelector('#loading'); _flutter.loader.load({ serviceWorker: { serviceWorkerVersion: serviceWorkerVersion, } }).then(function (engineInitializer) { loading.classList.add('main_done'); return engineInitializer.initializeEngine() }).then(function (appRunner) { loading.classList.add('init_done'); return appRunner.runApp() }).then(function (app) { window.setTimeout(function () { loading.remove() }, 200) }) })
   </script>
 </body>
 
