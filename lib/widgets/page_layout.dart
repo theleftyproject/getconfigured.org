@@ -61,7 +61,7 @@ class PageLayout extends StatelessWidget {
         ),
         actions: <Widget>[
           Semantics(
-            tooltip: 'https://doc.getconfigured.org',
+            tooltip: 'Link to https://doc.getconfigured.org',
             child: IconButton(
               onPressed: () async =>
                   await launchUrlString("https://doc.getconfigured.org"),
@@ -82,6 +82,7 @@ class PageLayout extends StatelessWidget {
               },
               child: Semantics(
                 tooltip: 'https://github.com/theleftyproject/lament',
+                label: 'Link to GitHub repository theleftyproject/lament',
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SvgPicture.asset(

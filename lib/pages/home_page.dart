@@ -97,6 +97,7 @@ class HomePage extends StatelessWidget {
                   title: cards[index]["title"]!,
                   description: cards[index]["description"]!,
                   color: color,
+                  slideFromLeft: isBlue,
                 );
               }),
             ),
