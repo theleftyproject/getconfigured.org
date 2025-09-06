@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lefty_framework_website/widgets/flashing_text.dart';
+import 'package:lefty_framework_website/widgets/flashing_text_span.dart';
 import 'package:lefty_framework_website/widgets/page_layout.dart';
 import 'package:lefty_framework_website/widgets/fade_card.dart';
 
@@ -47,13 +49,13 @@ class HomePage extends StatelessWidget {
               ),
               children: [
                 const TextSpan(text: "Nix was a PhD thesis, we bring you the "),
-                TextSpan(
-                  text: "antithesis",
-                  style: TextStyle(
-                    color: isDarkMode
-                        ? Colors.deepPurple[300]
-                        : Colors.deepPurple[700],
-                    fontWeight: FontWeight.w900,
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.baseline,
+                  baseline: TextBaseline.alphabetic,
+                  child: FlashingText(
+                    text: "antithesis",
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                    colors: [Colors.purple, Colors.pink, Colors.blue],
                   ),
                 ),
               ],
