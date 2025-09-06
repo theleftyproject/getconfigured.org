@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-import 'package:lefty_framework_website/util/color_ext.dart';
+import 'package:color_ext/color_ext.dart';
 
 class FadeCard extends StatefulWidget {
   final String title;
@@ -70,7 +70,7 @@ class _FadeCardState extends State<FadeCard> {
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
-                  color: widget.color.scale(0.6, includeAlpha: true),
+                  color: widget.color.withLuminance(0.6),
                   blurRadius: 8,
                   offset: Offset(0, 4),
                 ),
@@ -100,5 +100,3 @@ class _FadeCardState extends State<FadeCard> {
     );
   }
 }
-
-

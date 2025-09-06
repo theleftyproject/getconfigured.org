@@ -37,6 +37,7 @@ dependencies:
   url_launcher: ^6.3.2
   visibility_detector: ^0.4.0+2
   flutter_svg: ^2.2.0
+  color_ext: ^0.1.2
 
 dev_dependencies:
   flutter_test:

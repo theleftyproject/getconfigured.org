@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lefty_framework_website/widgets/flashing_text.dart';
-import 'package:lefty_framework_website/widgets/flashing_text_span.dart';
 import 'package:lefty_framework_website/widgets/page_layout.dart';
 import 'package:lefty_framework_website/widgets/fade_card.dart';
 
